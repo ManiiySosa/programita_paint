@@ -20,7 +20,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Shape;
 
 public class ContenedorPrincipal extends BorderPane {
 
@@ -81,31 +83,35 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
     public void crearFormas(Pane areadibujo){
-        List<Line> lineas = new ArrayList<Line>();
-        for(int i=0; i<200; i++){
-            Line linea = new Line(300, 100+i, 300+i, 300);
-            Line linea2 = new Line(300, 100+i, 300-i, 300);
-            Line linea3 = new Line(300, 500-i, 300+i, 300);
-            Line linea4 = new Line(300, 500-i, 300-i, 300);
+        List<Shape> lineas = new ArrayList<Shape>();
+        for(int i=0; i<2000; i++){
+            double x1, x2 , y1, y2, radio;
+            int tipo = (int)(Math.random()*2);
+            x1 = Math.random()*800;
+            x2 = Math.random()*800;
+            y1 = Math.random()*600;
+            y2 = Math.random()*600;
+            radio = Math.random()*50;
 
+            Shape linea = null;
+            if(tipo == 0){
+                 linea = new Line(x1, y1, x2, y2);
+            }else{
 
+                linea = new Circle(x1, y1, radio);
+            }
+                
             double r, g, v;
             r = Math.random()*256;
             g = Math.random()*256;
             v = Math.random()*256;  
             Paint color = Color.rgb((int)r, (int)g, (int)v);
-
+         
             linea.setStroke(color);
-            linea2.setStroke(color);
-            linea3.setStroke(color);
-            linea4.setStroke(color);
+            linea.setFill(color);
             lineas.add(linea);
-            lineas.add(linea2);
-            lineas.add(linea3);
-            lineas.add(linea4);
 
         }
-
         areadibujo.getChildren().addAll(lineas);
                                      
     }
