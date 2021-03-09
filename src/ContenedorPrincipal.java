@@ -92,7 +92,7 @@ public class ContenedorPrincipal extends BorderPane {
             double r, g, v;
             r = Math.random()*256;
             g = Math.random()*256;
-            v = Math.random()*256;
+            v = Math.random()*256;  
             Paint color = Color.rgb((int)r, (int)g, (int)v);
 
             linea.setStroke(color);
