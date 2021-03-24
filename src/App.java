@@ -16,8 +16,7 @@ public class App extends Application {
         root.setContent(contenido);
         root.setFitToHeight(true);
         root.setFitToWidth(true);
-
-        Scene escena = new Scene(root, 800, 600);
+        Scene escena = new Scene(root, 900, 700);
         primaryStage.setTitle("programita paint :)(:");
         primaryStage.setScene(escena);
         //primaryStage.setResizable(false);

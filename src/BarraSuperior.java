@@ -29,6 +29,10 @@ public class BarraSuperior extends VBox{
     public static final int RECTANGULO = 3;
     public static final int CIRCULO = 4;
     public static final int ELIPSE = 5;
+    public static final int POLIGONO = 6;
+    public static final int TRIANGULO = 7;
+    public static final int CURVA2 = 8;
+    public static final int CURVA3 = 9;
 
     private int herramientaSeleccionada = SELECCIONAR;
 
@@ -97,11 +101,13 @@ public class BarraSuperior extends VBox{
         elipse.setOnAction(evt-> {
             herramientaSeleccionada = ELIPSE;
         });
+        Button triangulo = new Button("", new ImageView(new Image("triangulo.png", 24, 24, false, false)));
+        triangulo.setTooltip(new Tooltip("triangulo"));
+        triangulo.setOnAction(evt-> {
+            herramientaSeleccionada = TRIANGULO;
+        });
 
-
-        barraHerramientas.getItems().addAll(seleccionar, linea, cuadrado, rectangulo, circulo, elipse);
-
-
+        barraHerramientas.getItems().addAll(seleccionar, linea, cuadrado, rectangulo, circulo, elipse, triangulo);
 
         Label etiColorBorde = new Label("Borde:");
         colorBorde = new ColorPicker();
